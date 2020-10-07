@@ -11,11 +11,11 @@
           <div class="repos">
             <ul>
               <li v-for="(item, index) in repos.slice(0, 4)" :key="index">
-                <!-- <a :href="item.html_url"> -->
+                <a :href="item.html_url" target="_blank">
                 <div class="name">{{ item.name }}</div>
                 <div class="description">{{ item.description }}</div>
                 <div class="url">{{ item.html_url }}</div>
-                <!-- </a> -->
+                </a>
               </li>
             </ul>
           </div>
@@ -24,7 +24,7 @@
           <div class="repos">
             <ul>
               <li v-for="(item, index) in repos.slice(4, 8)" :key="index">
-                <a :href="item.html_url">
+                <a :href="item.html_url" target="_blank">
                   <div class="name">{{ item.name }}</div>
                   <div class="url">{{ item.html_url }}</div>
                   <div class="description">{{ item.description }}</div>
@@ -52,7 +52,6 @@ export default {
       this.axios.get(api)
         .then(res => {
           this.repos = res.data
-          console.log(res)
         })
         .catch(error => {
           console.log(error, '讀取錯誤，請檢查')
